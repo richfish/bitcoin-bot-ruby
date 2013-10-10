@@ -1,0 +1,29 @@
+.little_container
+  %h1="Trades"
+  %a{ href: position_log_path } Position Log
+  %br
+  %br
+  %a{ href: price_log_path } Price Log
+  %br
+  %br
+  ="Current Price: #{@current_price}"
+  -@completed_trades.each do |trade|
+    .row{ style: "margin-bottom:20px;" }
+      .large-2.columns
+        -if trade.sell.nil?
+          **CURRENT TRADE
+      .large-2.columns
+        %strong Created
+        .tdata=(trade.created_at - 7.hours).to_s.gsub("UTC", "")
+      .large-2.columns
+        %strong Buy
+        .tdata=trade.buy.to_f
+      .large-2.columns
+        %strong Sell
+        .tdata=trade.sell.try(:to_f)
+      .large-2.columns
+        %strong Duration (min)
+        .tdata=trade.duration
+      .large-2.columns
+        %strong Profit
+        .tdata=trade.profit

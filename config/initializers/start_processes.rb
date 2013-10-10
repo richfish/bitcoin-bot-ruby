@@ -1,0 +1,1 @@
+#formerly tried putting the fetch_price and buy_in_loop procceses in here... nope

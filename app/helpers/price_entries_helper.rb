@@ -1,0 +1,2 @@
+module PriceEntriesHelper
+end

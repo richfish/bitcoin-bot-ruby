@@ -1,0 +1,2 @@
+class CompleteTradesController < ApplicationController
+end
