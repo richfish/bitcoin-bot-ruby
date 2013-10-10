@@ -1,8 +1,6 @@
 == README
 
-Two main processes/endless loops: Fetching the prices and managing the position.
-
-You'll have to add your credentials in the MtGox intializer (note, only trades on MtGox for now).
+Two main processes/endless loops: Fetching prices and managing the position.
 
 Uses Memcached for writing to logs (originally deployed on Heroku where it's a read only file system), which gives live updates on trade positions etc. in the browser.
 
@@ -17,6 +15,8 @@ Optinally integrated with Delayed Job (as rake tasks) if you want to run it as a
 
 rake fetch_price
 rake buy_sell
+
+You'll have to add your credentials in the MtGox intializer (note, only trades on MtGox for now).
 
 
 
