@@ -1,28 +1,23 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Two main processes/endless loops: Fetching the prices and managing the position.
 
-Things you may want to cover:
+You'll have to add your credentials in the MtGox intializer (note, only trades on MtGox for now).
 
-* Ruby version
+Uses Memcached for writing to logs (originally deployed on Heroku where it's a read only file system), which gives live updates on trade positions etc. in the browser.
 
-* System dependencies
+Recommended way to run bot is with Rails runner:
 
-* Configuration
+rails r "PriceEntry.fetch_price"
+rails r "BuySell.new.buy_in_loop"
 
-* Database creation
+And detaching.
 
-* Database initialization
+Optinally integrated with Delayed Job (as rake tasks) if you want to run it as a background process:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rake fetch_price
+rake buy_sell
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
