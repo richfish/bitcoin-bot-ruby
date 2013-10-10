@@ -18,6 +18,8 @@ rake buy_sell
 
 You'll have to add your credentials in the MtGox intializer (note, only trades on MtGox for now).
 
+Current just uses Stochastic and Moving Averages to generate buy signals.
+
 
 
 
